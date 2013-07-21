@@ -1,10 +1,10 @@
 # Interface between user search terms and Wikipedia API
+require 'wikipedia'
+
 
 module WikiClient
 
   extend self
-
-  require 'wikipedia'
 
   def build api_request = {}
     paragraph_count = api_request[:paragraphs]
@@ -22,16 +22,12 @@ module WikiClient
     seed_text.gsub!(/\\"/,'"')
     seed_text = seed_text.split(/==.*/).first
   end
-
 end
 
 if $0 == __FILE__
   paragraph_count = ARGV[0]
   search_term = ARGV[1..-1]
-  ipsum_seed_data = {}
-  ipsum_seed_data[:paragraphs] = paragraph_count
-  search_term_string = search_term.join('_')
-  ipsum_seed_text = WikiClient.wiki_clean ( Wikipedia.find( search_term_string ).sanitized_content )
-  ipsum_seed_data[:text_from_source] = ipsum_seed_text
-  puts ipsum_seed_data
+  puts WikiClient.build(term: search_term, 
+                   paragraphs: paragraph_count)
 end
+

@@ -14,6 +14,7 @@ GEM
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     tilt (1.4.1)
+    wikipedia-client (1.3.0)
 
 PLATFORMS
   ruby
@@ -23,3 +24,4 @@ DEPENDENCIES
   json
   shotgun
   sinatra
+  wikipedia-client (~> 1.3.0)
