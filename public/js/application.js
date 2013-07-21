@@ -4,16 +4,16 @@ $(document).ready(function(){
   $('.paragraphs').customSelect();
   $('.word').on('keydown', function(e) {
     if(e.keyCode === 8) {
-      inputWidth = (20 + this.value.length * 12);
-      formWidth = (620 + this.value.length * 13);
+      inputWidth = (20 + this.value.length * 15);
+      formWidth = (650 + this.value.length * 16);
     } else {
-      inputWidth = (40 + this.value.length * 12);
-      formWidth = (620 + this.value.length * 13);
+      inputWidth = (40 + this.value.length * 15);
+      formWidth = (650 + this.value.length * 16);
     }
 
     if(inputWidth < 100) {
       inputWidth = 100;
-      formWidth = 640;
+      formWidth = 650;
     }
 
     $(this).css("width", inputWidth + "px");
@@ -23,10 +23,10 @@ $(document).ready(function(){
   $('form').on("submit", function(e) {
     e.preventDefault();
     $.ajax({
-      url: "/api/word/"+$('.word').val()+"/paragraphs/"+$('.paragraphs').val(),
+      url: "/api/term/"+$('.word').val()+"/paragraphs/"+$('.paragraphs').val(),
       type: 'get',
       success: function(response) {
-        var paragraphs = response.term.split("\n");
+        var paragraphs = response.anyLorem.split("\n");
 
         $('.ipsum-container').show().html("");
 

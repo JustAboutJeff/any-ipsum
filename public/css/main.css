@@ -2,17 +2,48 @@ body {
   background: #e74c3c;
 }
 
+::selection {
+  background: #c13e32; /* Safari */
+  color: #fff;
+  }
+::-moz-selection {
+  background: #c13e32; /* Firefox */
+  color: #fff;
+}
+
 h1, h2, h3, h4 {
   font-family: sans-serif;
   margin-top: 0;
 }
 
-h1 {
+div.hero h1 {
   font-size: 70px;
   font-weight: 800;
   text-align: center;
   margin: 70px auto;
+  margin-bottom: 5px;
   color: #fff;
+}
+
+div.hero h5 {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 300;
+}
+
+div.hero a {
+  background: #CE3323;
+  text-decoration: none;
+  padding: 1px 7px;
+  color: #fff;
+  transition: background-color 0.5s ease;
+}
+
+div.hero a:hover {
+  background: #fff;
+  color: #CE3323;
 }
 
 /* Ipsum Data */
@@ -21,14 +52,16 @@ h1 {
   width: 80%;
   margin: 40px auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  -webkit-box-shadow: 0 5px 0px 0px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(0,0,0,0.05);
+   -moz-box-shadow:   0 5px 0px 0px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(0,0,0,0.05);
+        box-shadow:   0 5px 0px 0px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(0,0,0,0.05);
 }
 
 /* Form */
 
 .form {
-  width: 640px;
+  width: 650px;
   height: 40px;
   margin: 0 auto;
   font-size: 30px;
@@ -80,16 +113,18 @@ select {
 }
 
 .submit {
-  margin: auto 5px;
+  display: inline-block;
   margin-bottom: 10px;
-  width: 75px;
-  height: 35px;
   background: #fff;
   color: #e74c3c;
   border: 0;
-  padding: 0;
+  padding: 10px;
   font-size: 17px;
   font-weight: 800;
+  transition: background-color 0.5s ease;
+  -webkit-box-shadow: 0 2px 0px 0px rgba(0,0,0,0.25);
+   -moz-box-shadow:   0 2px 0px 0px rgba(0,0,0,0.25);
+        box-shadow:   0 2px 0px 0px rgba(0,0,0,0.25);
 }
 
 .submit:hover {
@@ -101,10 +136,13 @@ select {
 
 .container {
   width: 80%;
+  max-width: 1500px;
   margin: 40px auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  -webkit-box-shadow: 0 5px 0px 0px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(0,0,0,0.05);
+   -moz-box-shadow:   0 5px 0px 0px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(0,0,0,0.05);
+        box-shadow:   0 5px 0px 0px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(0,0,0,0.05);
 }
 
 code {
@@ -136,10 +174,11 @@ footer a {
   text-decoration: none;
   padding: 1px 7px;
   color: #fff;
+  transition: background-color 0.5s ease;
+  font-weight: 500;
 }
 
 footer a:hover {
   background: #fff;
   color: #CE3323;
-  font-weight: 500;
 }

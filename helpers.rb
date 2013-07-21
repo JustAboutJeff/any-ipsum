@@ -10,17 +10,13 @@ module Helpers
   end
 
   def titleize(words)
-    words = words.split(' ')
+    words = words.strip.downcase.split(' ')
     words.each do |word|
       word[0] = word[0].upcase
     end
-
     words.join(' ')
-
   end
-
 end
-
 
 if $0 == __FILE__
   p Helpers.titleize("george washington")
