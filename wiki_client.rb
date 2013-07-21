@@ -11,7 +11,7 @@ module WikiClient
     search_term = api_request[:term]
     ipsum_seed_data = {}
     ipsum_seed_data[:paragraphs] = paragraph_count
-    search_term_string = search_term.join('_')
+    search_term_string = search_term.gsub(' ','_')
     ipsum_seed_text = WikiClient.wiki_clean ( Wikipedia.find( search_term_string ).sanitized_content )
     ipsum_seed_data[:text_from_source] = ipsum_seed_text
     ipsum_seed_data
