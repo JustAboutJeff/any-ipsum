@@ -1,43 +1,145 @@
-body{
-  background-color: lightgray;
-  background-image: url('../images/witewall_3.png');
+body {
+  background: #e74c3c;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Fugaz One', cursive;
+  font-family: sans-serif;
+  margin-top: 0;
 }
+
+h1 {
+  font-size: 70px;
+  font-weight: 800;
+  text-align: center;
+  margin: 70px auto;
+  color: #fff;
+}
+
+/* Ipsum Data */
+
+.ipsum-container {
+  width: 80%;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Form */
+
+.form {
+  width: 640px;
+  height: 40px;
+  margin: 0 auto;
+  font-size: 30px;
+  color: #fff;
+  line-height: 50px;
+}
+
+input {
+  margin: auto 5px;
+}
+
+input:focus {
+  background: #CE3323;
+}
+
+select {
+  margin: auto 5px;
+  font-size: 50px;
+}
+
+.word:focus {
+  outline: 0;
+}
+
+.word {
+  background: transparent;
+  width: 100px;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+
+.paragraphs {
+  background: transparent;
+  width: 30px;
+  padding-left: 10px;
+  height: 40px;
+  border: 0;
+  font-size:30px;
+  -webkit-appearance: none;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  border-radius: 0;
+}
+
+.paragraphs:focus {
+  outline: 0;
+  background: #CE3323;
+}
+
+.submit {
+  margin: auto 5px;
+  margin-bottom: 10px;
+  width: 75px;
+  height: 35px;
+  background: #fff;
+  color: #e74c3c;
+  border: 0;
+  padding: 0;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.submit:hover {
+  background: #CE3323;
+  color: #fff;
+}
+
+/* Instructions */
 
 .container {
-  background: #dee4fa;
-  margin: auto;
-  margin-top: 20px;
-  padding: 20px;
   width: 80%;
-  color: black;
-  font-family: 'Fauna One', serif;
-  box-shadow: 10px 10px 5px #888888;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.regular-button{
-  border-radius: 5px;
-  /*font-family: 'Fugaz One', cursive;*/
-  background-color: black;
-  color: white;
-  margin: 10px 0;
+code {
+  border: 1px solid #E0E0E0;
+  background: #E9E9E9;
+  padding: 0 4px;
 }
 
-form {
-  margin: 40px 0;
+.gist-meta {
+  display: none;
 }
 
-.form-element{
-  margin: 10px 0;
+.gist {
+  font-size: 15px;
 }
 
-.small{
-  font-family: 'Fauna One', serif;
-  font-size: 10px;
-  font-style: italic;
-  margin: 0;
-  padding: 0;
+/* Footer */
+
+footer {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+footer a {
+  background: #CE3323;
+  text-decoration: none;
+  padding: 1px 7px;
+  color: #fff;
+}
+
+footer a:hover {
+  background: #fff;
+  color: #CE3323;
+  font-weight: 500;
 }

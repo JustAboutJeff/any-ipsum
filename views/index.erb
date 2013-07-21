@@ -1,0 +1,46 @@
+
+
+<h1>Any Ipsum</h1>
+
+<div class="form">
+  <form>
+    I want 
+    <select name="paragraphs" class="paragraphs">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3" selected>3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    paragraphs of <input type="text" name="word" class="word"> ipsum.
+    <input type="submit" class="submit" value="SUBMIT">
+  </form>
+</div>
+
+<div class="ipsum-container">
+</div>
+
+<div class="container">
+
+  <h2>API</h2>
+
+  <h3>Request:</h3>
+
+  <p><code>http://anyipsum.herokuapp.com/api/word/{word}/paragraphs/{number of paragraphs}</code></p>
+
+  <p><code>http://anyipsum.herokuapp.com/api/word/programming/paragraphs/5</code></p>
+
+  <p>Specifying the number of paragraphs is optional- the default is 3</p>
+
+  <p><code>http://anyipsum.herokuapp.com/api/word/programming</code></p>
+
+  <h3>Response:</h3>
+
+  <script src="https://gist.github.com/andmcgregor/cd68a03e2d0d752884f6.js"></script>
+</div>
+
+<footer>Made by <a href="https://github.com/Ank13">Ank13</a>, <a href="https://github.com/JustAboutJeff">JustAboutJeff</a> and <a href="https://github.com/andmcgregor">andmcgregor</a>.</footer>

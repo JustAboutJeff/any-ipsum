@@ -8,3 +8,4 @@ gem 'haml'
 
 # Ruby client for the Wikipedia API
 gem "wikipedia-client", "~> 1.3.0"
+gem 'json'
