@@ -1,5 +1,7 @@
 require 'sinatra'
 require './helpers'
+require './generator'
+require './wiki_client'
 
 get '/' do
   erb :index
