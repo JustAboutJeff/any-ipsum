@@ -26,7 +26,7 @@ $(document).ready(function(){
       url: "/api/term/"+$('.word').val()+"/paragraphs/"+$('.paragraphs').val(),
       type: 'get',
       success: function(response) {
-        var paragraphs = response.anyLorem.split("\n");
+        var paragraphs = response.anyIpsum.split("\n");
 
         $('.ipsum-container').show().html("");
 
