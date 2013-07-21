@@ -1,3 +1,8 @@
+# Local ruby environment configuration files #
+##############################################
+.ruby-gemset
+.ruby-version
+
 # Compiled source #
 ###################
 *.com
