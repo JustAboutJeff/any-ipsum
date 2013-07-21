@@ -34,7 +34,7 @@ $(document).ready(function(){
           $('.ipsum-container').append('<p>'+paragraphs[index]+'</p>');
         });
 
-        $('.form').find('.word, .paragraphs').val("");
+        $('.word').val("");
       },
       error: function() {
         console.log("fail");
