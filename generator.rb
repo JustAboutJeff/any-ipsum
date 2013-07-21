@@ -69,8 +69,9 @@ module Generator
   end
 
   def make_multiple_paragraphs(args)
-    words_array = args.fetch(:words_array, DEFAULT_WORD_ARRAY) 
-    words_per_par = args.fetch(:words_per_par, 17)
+    text = args.fetch(:text_from_source, DEFAULT_WORD_ARRAY) 
+    words_array = clean(text)
+    words_per_par = args.fetch(:words_per_par, 25)
     paragraphs = args.fetch(:paragraphs, 3).to_i
 
     output = ""
@@ -80,36 +81,18 @@ module Generator
     end
     output
   end
-
 end
-
 
 if $0 == __FILE__
 
-  puts "How many paragraphs about Cicero?"
-  paragraphs = gets.chomp.to_i
-
-  puts "How many words per paragraph?"
-  words_per_par = gets.chomp.to_i
-
-  topic = {cicero: "His influence on the Latin language was so immense that the subsequent history of prose in not only 
+  topic = {text_from_source: "His influence on the Latin language was so immense that the subsequent history of prose in not only 
           Latin but European languages up to the 19th century was said to be either a reaction against or a return to his 
           style.[4] According to Michael Grant, 'the influence of Cicero upon the history of European literature and ideas 
           greatly exceeds that of any other prose writer in any language'. Cicero introduced the Romans to the chief schools 
           of Greek philosophy and created a Latin philosophical vocabulary (with neologisms such as humanitas, 
-          qualitas, quantitas, and essential[6] distinguishing himself as a linguist, translator, and philosopher."}
+          qualitas, quantitas, and essential[6] distinguishing himself as a linguist, translator, and philosopher.",
+          paragraphs: 5}
 
-  clean_array = Generator.clean(topic[:cicero])
-
-  word_count_hash = Generator.find_count_by_frequency(clean_array)
-
-  verbs_array = Generator.id_some_verbs(clean_array)
-
-  one_para = Generator.make_paragraph(words_array: clean_array, words_per_par: words_per_par)
-
-  puts many_paras = Generator.make_multiple_paragraphs(
-                                    words_array: clean_array, 
-                                    words_per_par: words_per_par, 
-                                    paragraphs: paragraphs)
+  puts many_paras = Generator.make_multiple_paragraphs(topic)
 
 end
