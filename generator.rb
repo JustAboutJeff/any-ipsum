@@ -34,7 +34,7 @@ module Generator
   end
 
   def id_some_verbs(word_array=DEFAULT_WORD_ARRAY)
-    passive_verbs = %w[was]
+    passive_verbs = %w[was had were]
     # find words with common verb endings, but not close to comprehensive
     word_array.select{ |word| word.match(/(ed$|ing$|id$|ise$)/)} + passive_verbs
   end
