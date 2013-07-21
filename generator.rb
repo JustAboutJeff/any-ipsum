@@ -5,14 +5,14 @@ module Generator
   extend self
 
   # words with more than 4 characters that should be rejected
-  REJECT_THESE_WORDS = %w(such with)
+  REJECT_THESE_WORDS = %w(such with that these this those other they their)
 
   def clean(string)
-    # remove debris (parenthesis, commas, etc.)
-    string.gsub(/[(),.:;?!'"]/, '').
+    # remove debris (parenthesis, commas, etc.), and downcase
+    string.gsub(/[(),.:;?!'"]/, '').downcase.
     # remove citations in the format: [4]
     gsub(/\[\d\]/, '').
-    # break the string into words and put the same words together
+    # break the string into words, put same words together
     split(' ').sort.
     # reject words less than three characters
     reject{ |word| word.length <= 3}.
@@ -30,15 +30,55 @@ module Generator
   end
 
   def id_some_verbs(word_array)
+    passive_verbs = %w[was]
     # find words with common verb endings, but not close to comprehensive
-    word_array.select{ |word| word.match(/(ed$|ing$|id$|ise$)/)}
+    word_array.select{ |word| word.match(/(ed$|ing$|id$|ise$)/)} + passive_verbs
   end
 
+  def make_paragraph(words_array, words_per_par=7)
+    output = ""
+    verbs_array = id_some_verbs(words_array)
+    other_words = words_array - verbs_array
+
+    until words_per_par <= 0 do
+      # Start sentence with capitalized verb/non-verb on a 50/50 split
+      first_word = rand(1)
+      output << "#{other_words.sample.capitalize} " if first_word == 0
+      output << "#{verbs_array.sample.capitalize} " if first_word == 1
+      # Put a verb next
+      output << "#{verbs_array.sample} "
+      # Then 1 to 3 non-verb words
+      nonverbs = rand(3)+1
+      nonverbs.times { output << "#{other_words.sample} "}
+      # Put a verb next half the time
+      verb2 = rand(1)
+      output << "#{verbs_array.sample} " if verb2 == 1
+      # Period after last word
+      output << "#{other_words.sample}. "
+      # output << verbs_array.sample
+      words_per_par -= (3 + nonverbs = verb2)
+    end
+    output
+  end
+
+  def make_multiple_paragraphs(word_array, words_per_par=7, paragraphs=3)
+    output = ""
+    paragraphs.times do
+      output << "#{make_paragraph(word_array, words_per_par)} \n\n"
+    end
+    output
+  end
 
 end
 
 
 if $0 == __FILE__
+
+  puts "How many paragraphs about Cicero?"
+  paragraphs = gets.chomp.to_i
+
+  puts "How many words per paragraph?"
+  words_per_par = gets.chomp.to_i
 
   topic = {cicero: "His influence on the Latin language was so immense that the subsequent history of prose in not only 
           Latin but European languages up to the 19th century was said to be either a reaction against or a return to his 
@@ -51,12 +91,10 @@ if $0 == __FILE__
 
   word_count_hash = Generator.find_count_by_frequency(clean_array)
 
-  p verbs_array = Generator.id_some_verbs(clean_array)
+  verbs_array = Generator.id_some_verbs(clean_array)
 
-  # puts "How many paragraphs about Cicero?"
-  # paragraphs = gets.chomp.to_i
+  one_para = Generator.make_paragraph(clean_array, words_per_par)
 
-  # puts "How many words per paragraph?"
-  # words_per_par = gets.chomp.to_i
+  puts many_paras = Generator.make_multiple_paragraphs(clean_array, words_per_par, paragraphs)
 
 end
