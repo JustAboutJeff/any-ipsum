@@ -2,7 +2,14 @@ body {
   background: #e74c3c;
 }
 
-::select;
+::selection {
+  background: #c13e32; /* Safari */
+  color: #fff;
+  }
+::-moz-selection {
+  background: #c13e32; /* Firefox */
+  color: #fff;
+}
 
 h1, h2, h3, h4 {
   font-family: sans-serif;
