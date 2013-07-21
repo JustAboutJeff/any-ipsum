@@ -24,12 +24,14 @@ module Generator
     # establishes empty hash with default value of 0
     words_by_count = Hash.new(0)
     # find frequency of each word
-    word_array.each { |word| words_by_count[word.to_sym] += 1 }
+    word_array.each { |word| words_by_count[word] += 1 }
     # return the hash
     words_by_count
   end
 
-  def identify_verbs
+  def id_some_verbs(word_array)
+    # find words with common verb endings, but not close to comprehensive
+    word_array.select{ |word| word.match(/(ed$|ing$|id$|ise$)/)}
   end
 
 
@@ -46,10 +48,10 @@ if $0 == __FILE__
           qualitas, quantitas, and essential[6] distinguishing himself as a linguist, translator, and philosopher."}
 
   clean_array = Generator.clean(topic[:cicero])
-  p clean_array.sort
-  puts
-  p word_count_hash = Generator.find_count_by_frequency(clean_array)
 
+  word_count_hash = Generator.find_count_by_frequency(clean_array)
+
+  p verbs_array = Generator.id_some_verbs(clean_array)
 
   # puts "How many paragraphs about Cicero?"
   # paragraphs = gets.chomp.to_i
