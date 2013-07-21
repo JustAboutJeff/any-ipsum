@@ -6,14 +6,16 @@ Ipsum type place-holder text to the user.
 
 Produced at a hackathon at Dev Bootcamp Chicago on Sunday July 21, 2013
 
+## Live Demo
+
+http://any-ipsum.herokuapp.com/
+
 ## Deployment
 
 After bundle install, you can run in development environment on your computer 
 with "shotgun server.rb"
 
-## Live Demo
-
-(put heroku link here)
+To deploy to Heroku, add file called '.ruby-version', with Ruby verison (1.9.3-p327)
 
 ## Team
 
