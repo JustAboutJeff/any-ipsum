@@ -6,6 +6,10 @@ module Generator
 
   # words with more than 4 characters that should be rejected
   REJECT_THESE_WORDS = %w(such with that these this those other they their)
+  # backup words array to use in case none is supplied
+  DEFAULT_WORD_ARRAY = %w(Sed ut perspiciatis unde omnis iste natus error sit 
+    voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa 
+    quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt)
 
   def clean(string)
     # remove debris (parenthesis, commas, etc.), and downcase
@@ -20,7 +24,7 @@ module Generator
     reject{ |word| REJECT_THESE_WORDS.include?(word)}
   end
 
-  def find_count_by_frequency(word_array)
+  def find_count_by_frequency(word_array=DEFAULT_WORD_ARRAY)
     # establishes empty hash with default value of 0
     words_by_count = Hash.new(0)
     # find frequency of each word
@@ -29,13 +33,16 @@ module Generator
     words_by_count
   end
 
-  def id_some_verbs(word_array)
+  def id_some_verbs(word_array=DEFAULT_WORD_ARRAY)
     passive_verbs = %w[was]
     # find words with common verb endings, but not close to comprehensive
     word_array.select{ |word| word.match(/(ed$|ing$|id$|ise$)/)} + passive_verbs
   end
 
-  def make_paragraph(words_array, words_per_par=7)
+  def make_paragraph(args)
+    words_array = args.fetch(:words_array, DEFAULT_WORD_ARRAY)
+    words_per_par = args.fetch(:words_per_par, 7)
+    
     output = ""
     verbs_array = id_some_verbs(words_array)
     other_words = words_array - verbs_array
@@ -61,10 +68,15 @@ module Generator
     output
   end
 
-  def make_multiple_paragraphs(word_array, words_per_par=7, paragraphs=3)
+  def make_multiple_paragraphs(args)
+    words_array = args.fetch(:words_array, DEFAULT_WORD_ARRAY) 
+    words_per_par = args.fetch(:words_per_par, 17)
+    paragraphs = args.fetch(:paragraphs, 3).to_i
+
     output = ""
     paragraphs.times do
-      output << "#{make_paragraph(word_array, words_per_par)} \n\n"
+      output << "#{make_paragraph(words_array: words_array, 
+                words_per_par: words_per_par)} \n\n"
     end
     output
   end
@@ -93,8 +105,11 @@ if $0 == __FILE__
 
   verbs_array = Generator.id_some_verbs(clean_array)
 
-  one_para = Generator.make_paragraph(clean_array, words_per_par)
+  one_para = Generator.make_paragraph(words_array: clean_array, words_per_par: words_per_par)
 
-  puts many_paras = Generator.make_multiple_paragraphs(clean_array, words_per_par, paragraphs)
+  puts many_paras = Generator.make_multiple_paragraphs(
+                                    words_array: clean_array, 
+                                    words_per_par: words_per_par, 
+                                    paragraphs: paragraphs)
 
 end
