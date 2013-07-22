@@ -1,5 +1,4 @@
 #Any Ipsum
-
 > An API to build any placeholder text you desire
 
 <http://any-ipsum.herokuapp.com/>
@@ -12,7 +11,7 @@ Created by:
 
 ##About
 
-Any Ipsum is an API that takes one or more search term and a number of paragraphs as parameters within a standard HTTP GET request. The application retrieves text related to the term(s) from Wikipedia, generates Lorem Ipsum type placeholder text, and responds to the client with formatted JSON data. We've included a browser facing demonstration page deployed as a lightweight Ruby Sinatra app.
+Any Ipsum is an API that takes one or more search term(s) and a number of paragraphs argument as parameters within a standard HTTP GET request. The application retrieves text related to the term(s) from Wikipedia, generates Lorem Ipsum type placeholder text, and responds to the client with formatted JSON data. We've included a browser facing demonstration page deployed as a lightweight Ruby Sinatra app.
 
 Produced at the Dev Bootcamp Chicago Hack-A-Thon on Sunday July 21, 2013
 
