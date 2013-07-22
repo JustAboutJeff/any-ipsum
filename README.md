@@ -10,6 +10,10 @@ Produced at a hackathon at Dev Bootcamp Chicago on Sunday July 21, 2013
 
 http://any-ipsum.herokuapp.com/
 
+## Screenshot
+
+![Any Ipsum](/any-ipsum.png)
+
 ## Deployment
 
 After bundle install, you can run in development environment on your computer 
