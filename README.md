@@ -15,7 +15,7 @@ http://any-ipsum.herokuapp.com/
 After bundle install, you can run in development environment on your computer 
 with "shotgun server.rb"
 
-To deploy to Heroku, add file called '.ruby-version', with Ruby verison (1.9.3)
+To deploy to Heroku, add a file '.ruby-version', with Ruby version (1.9.3)
 
 ## Team
 
