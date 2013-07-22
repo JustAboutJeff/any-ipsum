@@ -23,14 +23,13 @@ module WikiClient
   def wiki_clean seed_text
     seed_text.gsub!(/[<].{1,2}[>]|\\n/, '')
     seed_text.gsub!(/\\"/,'"')
-    seed_text = seed_text.split(/==.*/).first
+    seed_text.split(/==.*/).first
   end
 end
 
 if $0 == __FILE__
   paragraph_count = ARGV[0]
-  search_term = ARGV[1..-1]
-  puts WikiClient.build(term: search_term, 
-                   paragraphs: paragraph_count)
+  search_term = ARGV[1..-1].join(" ")
+  puts WikiClient.build(term: search_term,
+                        paragraphs: paragraph_count)
 end
-
