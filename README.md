@@ -1,7 +1,7 @@
 #Any Ipsum
 > An API to build any placeholder text you desire
 
-<http://any-ipsum.herokuapp.com/>
+<http://www.anyipsum.com/>
 
 Created by:
 
