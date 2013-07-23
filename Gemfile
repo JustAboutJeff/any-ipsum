@@ -6,6 +6,9 @@ gem 'sinatra'
 gem 'shotgun'
 gem 'haml'
 
+gem 'newrelic_rpm'
+
 # Ruby client for the Wikipedia API
 gem "wikipedia-client", "~> 1.3.0"
+
 gem 'json'
